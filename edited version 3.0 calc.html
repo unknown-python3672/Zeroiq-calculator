@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Funny Calculator</title>
+  <style>
+    body {
+      
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .view {
+      background-color: #a0afaf;
+      width: 144%;
+      max-width: 320px;
+      font-size: 24px;
+      text-align: right;
+      padding: 15px;
+      border-radius: 5px;
+      color: #1a1a1a;
+      margin: 0 auto 20px;
+    }
+     .calc-body{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+     }
+
+    .calc-wrapper {
+     
+      display: flex;
+      gap: 20px;
+      background-color: #a0afaf;
+      padding: 20px;
+      border-radius: 8px;
+      width: max-content;
+    }
+
+    .button-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .button-container button,
+    .numerical-value button {
+      padding: 15px;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      background-color: white;
+      color: #db1b00;
+      cursor: pointer;
+      min-width: 60px;
+    }
+
+    .button-container button:hover,
+    .numerical-value button:hover {
+      background-color: #2980b9;
+      color: white;
+    }
+
+    .Last-button {
+      display: flex;
+      gap: 10px;
+      grid-column: 1 / -1;
+    }
+
+    .Last-button button {
+      flex: 1;
+    }
+
+    .numerical-value {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  
+
+  <div class="calc-body">
+  <p class="view" id="display">0</p>
+  <div class="calc-wrapper">
+
+    <!-- Number Grid -->
+    <div class="button-container">
+      <button id="1">1</button>
+      <button id="2">2</button>
+      <button id="3">3</button>
+      <button id="4">4</button>
+      <button id="5">5</button>
+      <button id="6">6</button>
+      <button id="7">7</button>
+      <button id="8">8</button>
+      <button id="9">9</button>
+
+      <div class="Last-button">
+        <button id="0">0</button>
+        <button id="equals">=</button>
+        <button id="clear">Clear</button>
+        <button id="AC">AC</button>
+      </div>
+    </div>
+
+    <!-- Operator Buttons -->
+    <div class="numerical-value">
+      <button id="plus">+</button>
+      <button id="minus">-</button>
+      <button id="times">*</button>
+      <button id="divide">/</button>
+    </div>
+
+  </div>
+</div>
+<script type="text/javascript">
+  let display = document.getElementById("display");
+  let button1 = document.getElementById("1");
+  button1.addEventListener("click", function(){
+   display.innerHTML += 1;
+  }); 
+  let button2 = document.getElementById("2");
+   button2.addEventListener("click", function(){
+   display.innerHTML += 2;
+  }); 
+   let button3 = document.getElementById(3);
+    button3.addEventListener("click", function(){
+   display.innerHTML += 3;
+  }); 
+    let button4 = document.getElementById(4);
+     button4.addEventListener("click", function(){
+   display.innerHTML += 4;
+  }); 
+     let button5 = document.getElementById(5);
+      button5.addEventListener("click", function(){
+   display.innerHTML += 5;
+  }); 
+      let button6 = document.getElementById(6);
+       button6.addEventListener("click", function(){
+   display.innerHTML += 6;
+  }); 
+       let button7 = document.getElementById(7);
+        button7.addEventListener("click", function(){
+   display.innerHTML += 7;
+  }); 
+    let button8 = document.getElementById(8);
+     button8.addEventListener("click", function(){
+   display.innerHTML += 8;
+  }); 
+     let button9 = document.getElementById(9);
+      button9.addEventListener("click", function(){
+   display.innerHTML += 9;
+  }); 
+      let button0 = document.getElementById(0);
+       button0.addEventListener("click", function(){
+   display.innerHTML += 0;
+  }); 
+       let plus = document.getElementById("plus");
+       plus.addEventListener("click", function(){
+        display.innerHTML += "+";
+       });
+       let minus = document.getElementById("minus");
+       minus.addEventListener("click", function(){
+        display.innerHTML += "-";
+       });
+       let times = document.getElementById("times");
+       times.addEventListener("click", function(){
+        display.innerHTML += "*";
+       });
+       let divide = document.getElementById("divide");
+       divide.addEventListener("click", function(){
+        display.innerHTML += "/";
+     });
+  let clear = document.getElementById("clear");
+  clear.addEventListener("click", function(){
+    display.innerHTML = display.innerHTML.slice(0,-1);
+    if (display == ""){
+        display.innerHTML = "0";
+    }
+  });     
+  let AC = document.getElementById("AC");
+  AC.addEventListener("click", function(){
+    display.innerHTML = 0;
+  });
+  let equals = document.getElementById("equals");
+  equals.addEventListener("click", function(){
+    let currentinput = display.innerHTML;
+    if (currentinput === "01+1"){
+      display.innerHTML = "11";
+    } else if (currentinput.includes("/0")){
+  display.innerHTML = "Are you that dumb";
+    } else if (currentinput === "03+3"){
+      display.innerHTML = "I should have been the one to create YOU" ;
+    } else if (currentinput === "01*1"){
+        display.innerHTML = "If you ever feel useless remember YOU ARE."
+    }
+    else {
+      let randomResponses = [
+        "Here is a trophy 🏆 for being this dumb",
+        "IDK ask chatGPT",
+        "why don`t you just close this tab",      
+        "I knew humans where dumb but not as you",
+        "Stop touching my buttons 😉",
+        "Define stupid",
+        "I asked chatGPT too it`s confused",
+        "404, BRAIN not found",
+        "TRY again, but with logic this time."
+      ];
+      display.innerHTML = randomResponses[Math.floor(Math.random() *randomResponses.length)];
+    }
+  });
+</script>
+</body>
+</html>
